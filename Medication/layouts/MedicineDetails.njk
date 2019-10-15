@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Medication Details</title>
+  <link rel="stylesheet" href="MedicineDetails.css">
+</head>
+
+<body>
+  <main>
+    <div class="container">
+
+          {% for medicine in medicines %}
+          <div class="medicinedetails">
+            <div class = medicine >
+            <h3> {{medicine.medicineName}}</h3><br>
+          </div>
+          <div class = disease>
+            <h4>{{medicine.diseaseName}}</h4><br>
+          </div>
+            {% for time in medicine.timings %}
+                <p>{{time}}</p><br>
+            {% endfor %}
+              </div>
+            {% endfor %}
+
+      </div>
+  </main>
+</body>
+</html>
