@@ -31,6 +31,12 @@ router.get('/medicaldetails', (req, res) => {
   });
 });
 
+router.get('/table', (req, res) => {
+  res.render('table', {
+      session: req.session ? req.session : ''
+  });
+});
+
 router.post('/medicaldetails', (req,res) => {
   console.log("Hello medicaldetails");
   var medicinedetails = {
@@ -48,8 +54,8 @@ router.post('/medicaldetails', (req,res) => {
       res.send(err);
     } else {
       //res.send("Results " + JSON.stringify(results));
-      res.render("table");
-      res.send('Medicaldetails updated sucessfully');
+    res.render('table');
+      //res.send('Medicaldetails updated sucessfully');
       console.log('Medicaldetails updated sucessfully');
     }
   });
