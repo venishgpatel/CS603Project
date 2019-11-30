@@ -10,13 +10,17 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 //Use express-session for maintaining sessions
 const session = require('express-session');
+const http = require('http');
 
+const scheduler = require('./scheduler');
+const {check, validationResult} = require('express-validator/check');
 var cookieParser = require('cookie-parser');
 
 const app = express();
 
 //set view engine
 app.set('view engine', 'hbs');
+//app.use(expressValidator());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -80,6 +84,8 @@ app.use(main);
 
 const user = require('./routes/users.js')
 app.use(user);
+
+scheduler.start();
 
 //create connection to user
 //const user = require('./routes/users.js')

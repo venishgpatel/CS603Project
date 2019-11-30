@@ -8,14 +8,6 @@
     box-sizing: border-box;
     line-height: 1.5;
 }
-.form1{
-    position: absolute;
-    margin-top: 10%;
-    width: 25%;
-    color: #000000;
-    border-radius: 0.5rem;
-    padding: 1%;
-}
 
 body {
     height: 100vh;
@@ -25,8 +17,7 @@ body {
 a {
     cursor: pointer;
     text-decoration: none;
-    color:blue;
-    align-content: right;
+    color: #000000;
 }
 
 nav {
@@ -59,18 +50,20 @@ nav {
         font-size: inherit;
 }
 
-div{
-    padding: 10px;
-    margin: 0;
+main {
+    display: flex;
+
+}
+
+.doctor, .patient, {
+    font-size: 2rem;
+    flex: 1;
     text-align: center;
-}
-
-input {
-    margin-bottom: 10px;
-}
-
-table {
-    border-collapse: collapse;
+    margin: 10% 3%;
+    height: 30vh;
+    background-color: #78909c;
+    border-radius: 5px;
+    padding-top: 5%;
 }
 
 span {

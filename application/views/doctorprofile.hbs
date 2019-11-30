@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Doctor Profile</title>
+  <link rel="stylesheet" href="/css/doctorprofile.css">
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      medRec
+    </div>
+    <div class="loginSignup">
+      <a >Hello, {{doctorProfile.name}} </a>
+      <button class="logoutButton" onclick="location.href='/index'">Logout</button>
+    </div>
+  </nav>
+  <main>
+    <h3> Doctor Details </h3>
+    <form>
+      <div class="form-group row">
+        <label for="usr" class="col-sm-3 col-form-label">Name:</label>
+        <p class="col-sm-5 form-control" id="usr">{{doctorProfile.name}}</p>
+      </div>
+      <div class="form-group row">
+        <label for="usr" class="col-sm-3 col-form-label">Specialization:</label>
+        <p class="col-sm-5 form-control" id="usr">GeneralMedicine</p>
+      </div>
+      <div class="form-group row">
+        <label for="usr" class="col-sm-3 col-form-label">Contact:</label>
+        <p class="col-sm-5 form-control" id="usr">408-xxx-xxx</p>
+      </div>
+      <a href = "/medicaldetails" class = "update"> Click to update patient medication</a>
+    </main>
+  </body>
+  </html>

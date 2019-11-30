@@ -8,21 +8,13 @@
     box-sizing: border-box;
     line-height: 1.5;
 }
-.form1{
-    position: absolute;
-    margin-top: 10%;
-    width: 25%;
-    color: #000000;
-    border-radius: 0.5rem;
-    padding: 1%;
-}
 
 body {
     height: 100vh;
     overflow: hidden;
 }
 
-a {
+.update {
     cursor: pointer;
     text-decoration: none;
     color:blue;
@@ -59,20 +51,26 @@ nav {
         font-size: inherit;
 }
 
-div{
-    padding: 10px;
-    margin: 0;
+
+
+.form{
+    flex: 1;
+    font-family: 'Comfortaa', cursive;
+    position: absolute;
+    margin:1%;
+    background-color: #78909c;
     text-align: center;
+    margin: 0 10%;
 }
 
-input {
-    margin-bottom: 10px;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-span {
+a {
     margin-right: 5%;
+    color: #ffffff;
+}
+
+/*.medicine {
+  background-color: coral;
+}
+.disease {
+  background-color: burlywood;
 }

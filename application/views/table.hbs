@@ -8,17 +8,17 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            medRec
-        </div>
-        <div class="loginSignup">
-            <a href="/profile" >Hello, </a>
-            <button class="logoutButton" onclick="location.href='/index'">Logout</button>
-        </div>
-    </nav>
+  <nav>
+    <div class="logo">
+      medRec
+    </div>
+    <div class="loginSignup">
+      <a href="/profile" >Hello, {{name}} </a>
+      <button class="logoutButton" onclick="location.href='/index'">Logout</button>
+    </div>
+  </nav>
   <main>
-    <h3> Medical details updated successfully. </h3>
+    <h3> {{Page}} details updated successfully. </h3>
   </main>
 </body>
 </html>
