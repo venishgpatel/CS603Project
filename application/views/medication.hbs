@@ -13,26 +13,28 @@
       medRec
     </div>
     <div class="loginSignup">
-      <a href="/profile" >Hello, {{name}} </a>
+      Hello, <a href="/patientProfile" class="btn btn-primary">{{name}}</a>
       <button class="logoutButton" onclick="location.href='/index'">Logout</button>
     </div>
   </nav>
-  <main>
-    <div class="container">
-      {{#each patientMedication as |mypatientMedication|}}
-      <div class="medicinedetails">
-        <div class = "medicine" style="background-color: #bbbbbb;">
-          <h3> {{mypatientMedication.disease}} </h3><br>
+    <main>
+        <div class="container">
+            {{#each patientMedication as |mypatientMedication|}}
+                <div class="medicinedetails">
+                    <div class = "medicine" style="background-color: #222831; color: #cbf1f5;">
+                        <h3> {{mypatientMedication.disease}} </h3><br>
+                    </div>
+                    <div class = "disease">
+                        <h4 style="background-color: #393e46; color: #a6e3e9;">{{mypatientMedication.medicine}}</h4><br>
+                    </div>
+                    <div class="time">
+                        {{#each mypatientMedication.times as |time|}}
+                            <p>{{time}}</p><br>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/each}}
         </div>
-        <div class = "disease">
-          <h4 style="background-color: #999999;">{{mypatientMedication.medicine}}</h4><br>
-        </div>
-        {{#each mypatientMedication.times as |time|}}
-        <p>{{time}}</p><br>
-        {{/each}}
-      </div>
-      {{/each}}
-    </div>
-  </main>
+    </main>
 </body>
 </html>

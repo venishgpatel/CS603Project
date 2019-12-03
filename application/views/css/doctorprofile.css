@@ -51,26 +51,15 @@ nav {
         font-size: inherit;
 }
 
-
-
-.form{
-    flex: 1;
-    font-family: 'Comfortaa', cursive;
-    position: absolute;
-    margin:1%;
-    background-color: #78909c;
-    text-align: center;
-    margin: 0 10%;
+form{
+    margin: 5%;
 }
 
 a {
     margin-right: 5%;
-    color: #ffffff;
+    text-decoration: none;
 }
 
-/*.medicine {
-  background-color: coral;
-}
-.disease {
-  background-color: burlywood;
+a:hover {
+    text-decoration: none;
 }

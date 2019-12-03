@@ -43,9 +43,59 @@ router.post('/login', (req, res) => {
 
           if (userDetail.role == "doctor") {
             res.render('doctorprofile', {doctorProfile : userDetail});
+            session: req.session ? req.session : ''
           }
           else {
-            res.render('user', {userDetail : userDetail});
+              var patientid = req.session.userid;
+              console.log(patientid);
+              const sql = "select * from patient_medication where id1 = ? order by disease, medicine, time";
+              console.log(sql);
+              db.query(sql, [patientid],(err, result, fields) => {
+                  if (err) {
+                    console.log("Error in obtaining patient details" + err);
+                    res.send(err);
+                  } else {
+                    var patientMedication = result;
+
+                    var result = null;
+                    var resultlist = [];
+                    for (medication of patientMedication ) {
+                      if (result == null) {
+                        // First input row. Create a new output row.
+                        result = {};
+                        result['disease'] = medication['disease'];
+                        result['medicine'] = medication['medicine'];
+                        result['times'] = [medication['time']];
+                      } else {
+                        // Check if this input row matches previous input row on disease and medicine.
+                        if (result['disease'] == medication['disease'] &&
+                            result['medicine'] == medication['medicine']) {
+                              // Same as previous row. Just append the time.
+                            result['times'].push(medication['time']);
+                        } else {
+                            // different disease or medication. Start a new output row.
+                            resultlist.push(result);
+
+                            result = {};
+                            result['disease'] = medication['disease'];
+                            result['medicine'] = medication['medicine'];
+                            result['times'] = [medication['time']];
+                        }
+                      }
+                    }
+
+                    if (result != null) {
+                      resultlist.push(result);
+                    }
+
+                    console.log(resultlist);
+
+                    res.render('medication', {
+                        patientMedication: resultlist,
+                        name : req.session.name
+                    });
+                  }
+              });
           }
         }
       }
@@ -118,7 +168,6 @@ router.post('/patientdetails', (req, res) => {
   var userid = req.session.userid;
   var page = "Patient";
   var patientdetails = {
-    id : req.body.id,
     height : req.body.height,
     weight : req.body.weight,
     phonenumber : req.body.phonenumber,
@@ -126,13 +175,25 @@ router.post('/patientdetails', (req, res) => {
   };
 
   console.log("Create Patientdetails = " + JSON.stringify(patientdetails));
-  db.query('INSERT INTO patient_details SET ?', patientdetails, (err, results) => {
+  db.query('update patient_details SET ?  where id = ?', [patientdetails, req.body.id], (err, results) => {
     if (err) {
       console.log("Insert into patient_details table failed. " + err);
       res.send(err);
     } else {
-      res.render('table', {Page : page});
       console.log('patient details inserted sucessfully');
+      var userid = req.session.userid;
+      console.log("userid", userid);
+      const sql = "SELECT profile.name, profile.email, patient_details.height, patient_details.weight, patient_details.phonenumber, patient_details.blood_type FROM profile JOIN patient_details WHERE profile.id = patient_details.id AND profile.id = ?";
+
+      db.query(sql, [userid], (err, result, fields) => {
+        if (err) throw err;
+        var patientProfile = result[0];
+        console.log(JSON.stringify(patientProfile));
+        res.render('patientProfile', {
+          patientProfile: patientProfile,
+          session: req.session ? req.session : ''
+        });
+      });
     }
   })
 });

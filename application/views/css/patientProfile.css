@@ -76,3 +76,16 @@ table {
 span {
     margin-right: 5%;
 }
+
+.edit {
+    background-color: #263238;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5%;
+    border-radius: 10px;
+}
+
+.edit:hover {
+    color: #cccccc;
+    text-decoration: none;
+}

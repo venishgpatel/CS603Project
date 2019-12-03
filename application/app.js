@@ -13,7 +13,7 @@ const session = require('express-session');
 const http = require('http');
 
 const scheduler = require('./scheduler');
-const {check, validationResult} = require('express-validator/check');
+const {check, validationResult} = require('express-validator');
 var cookieParser = require('cookie-parser');
 
 const app = express();

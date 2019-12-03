@@ -45,7 +45,6 @@ router.get('/table', (req, res) => {
 router.post('/medicaldetails', (req,res) => {
   console.log("Hello medicaldetails");
   var name = req.session.name;
-  var page = "Medical";
 
   arr = req.body.time.split(':');
   var time = parseInt(arr[0])*60 + parseInt(arr[1]);
@@ -56,6 +55,7 @@ router.post('/medicaldetails', (req,res) => {
     medicine : req.body.medicine,
     quantity : req.body.quantity,
     time : time,
+    id: 111
   };
   console.log("medicinedetails = " + JSON.stringify(medicinedetails));
 
@@ -64,13 +64,24 @@ router.post('/medicaldetails', (req,res) => {
       console.log("Insert into patient_medication table failed." + err);
       res.send(err);
     } else {
-      //res.send("Results " + JSON.stringify(results));
-    res.render('table',{
-      name : name,
-      Page : page
-    });
-      //res.send('Medicaldetails updated sucessfully');
+        const queryString = "select * from profile where name = ?";
+        db.query(queryString, [name], (err, results) => {
+            if (err) {
+                return res.status(400).send({err});
+            }
+            else {
+                const userDetail = results[0];
+                req.session.user = userDetail.email;
+                req.session.userid = userDetail.id;
+                req.session.role = userDetail.role;
+                req.session.name = userDetail.name;
+
+                res.render('doctorprofile', {doctorProfile : userDetail});
+                session: req.session ? req.session : ''
+            }
+        });
       console.log('Medicaldetails updated sucessfully');
+      console.log(req.session.name);
     }
   });
 });
@@ -100,57 +111,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/medicine', (req, res) => {
-    var patientid = req.session.userid;
-    console.log(patientid);
-    const sql = "select * from patient_medication where id1 = ? order by disease, medicine, time";
-    console.log(sql);
-    db.query(sql, [patientid],(err, result, fields) => {
-        if (err) {
-          console.log("Error in obtaining patient details" + err);
-          res.send(err);
-        } else {
-          var patientMedication = result;
 
-          var result = null;
-          var resultlist = [];
-          for (medication of patientMedication ) {
-            if (result == null) {
-              // First input row. Create a new output row.
-              result = {};
-              result['disease'] = medication['disease'];
-              result['medicine'] = medication['medicine'];
-              result['times'] = [medication['time']];
-            } else {
-              // Check if this input row matches previous input row on disease and medicine.
-              if (result['disease'] == medication['disease'] &&
-                  result['medicine'] == medication['medicine']) {
-                    // Same as previous row. Just append the time.
-                  result['times'].push(medication['time']);
-              } else {
-                  // different disease or medication. Start a new output row.
-                  resultlist.push(result);
-
-                  result = {};
-                  result['disease'] = medication['disease'];
-                  result['medicine'] = medication['medicine'];
-                  result['times'] = [medication['time']];
-              }
-            }
-          }
-
-          if (result != null) {
-            resultlist.push(result);
-          }
-
-          console.log(resultlist);
-
-          res.render('medication', {
-              patientMedication: resultlist,
-              name : req.session.name
-          });
-        }
-    });
-});
 
 module.exports = router;

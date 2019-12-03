@@ -27,7 +27,7 @@
       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
           <ul class="navbar-nav ml-auto" margin=10px>
               <li class="nav-item">
-                  Hello, {{userDetail.name}}
+                  Hello, <a href="/patientProfile" class="btn btn-primary">{{userDetail.name}}</a>
               </li>
               <li class="nav-item">
                   <!-- <a class="nav-link" href="#">Link</a> -->
@@ -39,15 +39,6 @@
   </div>
   <main>
     <div class="card-group">
-      <div class="card">
-        <img src="/image/appointment.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Book an Appointment</h5>
-          <p class="card-text">Book an appointment with doctor.</p>
-          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-          <a href="/doctorprofile" class="btn btn-primary">Book</a>
-        </div>
-      </div>
       <div class="card">
         <img src="/image/user_profile.jpg" class="card-img-top" alt="...">
         <div class="card-body">
