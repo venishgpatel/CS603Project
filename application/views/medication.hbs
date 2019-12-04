@@ -8,48 +8,33 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            medRec
+  <nav>
+    <div class="logo">
+      medRec
+    </div>
+    <div class="loginSignup">
+      Hello, <a href="/patientProfile" class="btn btn-primary">{{name}}</a>
+      <button class="logoutButton" onclick="location.href='/index'">Logout</button>
+    </div>
+  </nav>
+    <main>
+        <div class="container">
+            {{#each patientMedication as |mypatientMedication|}}
+                <div class="medicinedetails">
+                    <div class = "medicine" style="background-color: #222831; color: #cbf1f5;">
+                        <h3> {{mypatientMedication.disease}} </h3><br>
+                    </div>
+                    <div class = "disease">
+                        <h4 style="background-color: #393e46; color: #a6e3e9;">{{mypatientMedication.medicine}}</h4><br>
+                    </div>
+                    <div class="time">
+                        {{#each mypatientMedication.times as |time|}}
+                            <p>{{time}}</p><br>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/each}}
         </div>
-        <div class="loginSignup">
-            <a href="/profile" >Hello, abc1</a>
-            <button class="logoutButton" onclick="location.href='/index'">Logout</button>
-        </div>
-    </nav>
-  <main>
-    <div class="container">
-          <div class="medicinedetails">
-            <div class = "medicine" style="background-color: #bbbbbb;">
-            <h3> qwe1 </h3><br>
-          </div>
-          <div class = "disease">
-            <h4 style="background-color: #999999;">asd1</h4><br>
-          </div>
-
-                <p>11:00:00</p><br>
-
-                <p>19:00:00</p><br>
-
-                <p></p><br>
-
-            </div>
-            <div class="medicinedetails">
-              <div class = medicine style="background-color: #bbbbbb;">
-              <h3> qwe2 </h3><br>
-            </div>
-            <div class = "disease">
-              <h4 style="background-color: #999999;">asd2</h4><br>
-            </div>
-
-                  <p>07:00:00</p><br>
-
-                  <p>13:00:00</p><br>
-
-                  <p>19:00:00</p><br>
-
-              </div>
-      </div>
-  </main>
+    </main>
 </body>
 </html>

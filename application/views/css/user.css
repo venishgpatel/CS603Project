@@ -55,7 +55,7 @@ main {
 
 }
 
-.appointment, .history, .medication{
+.appointment, .profile, .medication{
     font-size: 2rem;
     flex: 1;
     text-align: center;

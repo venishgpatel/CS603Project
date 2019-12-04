@@ -42,29 +42,28 @@ nav {
 }
 
 .logoutButton {
-        font-family: 'Raleway', sans-serif;
-        cursor: pointer;
-        border-style: none;
-        color: inherit;
-        background-color: inherit;
-        font-size: inherit;
+    font-family: 'Raleway', sans-serif;
+    cursor: pointer;
+    border-style: none;
+    color: inherit;
+    background-color: inherit;
+    font-size: inherit;
 }
 
+main {
+    height: 100vh;
+}
 .container{
-  display : flex;
-  justify-content:center;
-  align-content:center;
-  align-items: center;
-  width : 100%;
-  margin-top: 5%;
-  }
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    color: #000000;
+ }
 
 .medicinedetails{
-    flex: 1;
-    margin:1%;
-    background-color: #78909c;
+    border-radius: 10px;
+    background-color: #a6e3e9;
     text-align: center;
-    margin: 0 10%;
+    margin: 10% 10%;
 }
 
 a {
