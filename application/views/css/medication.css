@@ -54,17 +54,16 @@ main {
     height: 100vh;
 }
 .container{
-  display: grid;
-  grid-template-columns: auto auto auto;
-  color: #000000;
-
-  }
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    color: #000000;
+ }
 
 .medicinedetails{
     border-radius: 10px;
     background-color: #a6e3e9;
     text-align: center;
-    margin: 3% 5%;
+    margin: 10% 10%;
 }
 
 a {

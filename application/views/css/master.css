@@ -63,7 +63,7 @@ button:hover {
     line-height: 1;
 }
 
-input[type=text], input[type=password] {
+input[type=email], input[type=password] {
     width: 100%;
     display: inline-block;
     border: 1px solid #ccc;

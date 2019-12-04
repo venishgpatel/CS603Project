@@ -8,14 +8,6 @@
     box-sizing: border-box;
     line-height: 1.5;
 }
-.form1{
-    position: absolute;
-    margin-top: 10%;
-    width: 25%;
-    color: #000000;
-    border-radius: 0.5rem;
-    padding: 1%;
-}
 
 body {
     height: 100vh;
@@ -65,18 +57,16 @@ div{
     text-align: center;
 }
 
-input {
-    margin-bottom: 10px;
-}
-
-table {
-    border-collapse: collapse;
+form {
+    width: 60%;
+    margin: auto;
 }
 
 span {
     margin-right: 5%;
 }
 
+.form-control {}
 .edit {
     background-color: #263238;
     color: #ffffff;

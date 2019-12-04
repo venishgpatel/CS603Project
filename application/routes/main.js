@@ -55,7 +55,7 @@ router.post('/medicaldetails', (req,res) => {
     medicine : req.body.medicine,
     quantity : req.body.quantity,
     time : time,
-    id: 111
+    id: 110
   };
   console.log("medicinedetails = " + JSON.stringify(medicinedetails));
 

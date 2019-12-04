@@ -21,31 +21,33 @@
   </nav>
   <main>
     <form class = "patientdetails" action="/patientdetails" method="post">
-      <label for="id"><b>ID: </b></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      <input type="number" name="id" placeholder="Enter ID" required>
+        <div class="details">
+            <label for="id"><b>ID: </b></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="number" name="id" placeholder="Enter ID" required>
+            <br/>
+            <label for="phonenumber"><b>Phone: </b></label>&nbsp
+            <input type="number" name="phonenumber" placeholder="Enter Phonenumber" required>
+            <br/>
+            <label for="height"><b>Height: </b></label>
+            <input type="text" name="height" placeholder="Enter height" required>
+            <br/>
+            <label for="weight"><b>Weight: </b></label>
+            <input type="text" name="weight" placeholder="Enter weight" required>
+            <br/>
+            <label for="blood"><b>Blood Group: </b></label>&nbsp&nbsp&nbsp&nbsp&nbsp
+            <select id="blood" name="blood" placeholder="Select bloodgroup" required>
+              <option value="A Positive">A Positive</option>
+              <option value="A Negative">A Negative</option>
+              <option value="B Positive">B Positive</option>
+              <option value="B Negative">B Negative</option>
+              <option value="O Positive">O Positive</option>
+              <option value="O Negative">O Negative</option>
+              <option value="AB Negative">AB Positive</option>
+              <option value="AB Negative">AB Negative</option>
+            </select>
+        </div>
       <br/>
-      <label for="phonenumber"><b>Phone: </b></label>&nbsp
-      <input type="number" name="phonenumber" placeholder="Enter Phonenumber" required>
-      <br/>
-      <label for="height"><b>Height: </b></label>
-      <input type="text" name="height" placeholder="Enter height" required>
-      <br/>
-      <label for="weight"><b>Weight: </b></label>
-      <input type="text" name="weight" placeholder="Enter weight" required>
-      <br/>
-      <label for="blood"><b>Blood Group: </b></label>
-      <select id="blood" name="blood" placeholder="Select bloodgroup" required>
-        <option value="A Positive">A Positive</option>
-        <option value="A Negative">A Negative</option>
-        <option value="B Positive">B Positive</option>
-        <option value="B Negative">B Negative</option>
-        <option value="O Positive">O Positive</option>
-        <option value="O Negative">O Negative</option>
-        <option value="AB Negative">AB Positive</option>
-        <option value="AB Negative">AB Negative</option>
-      </select>
-      <br/>
-      <div><button id = "Submitbutton" type="submit">Submit</button></div>
+      <div><button id = "Submitbutton" class="submitButton" type="submit">Submit</button></div>
     </form>
   </main>
 </body>

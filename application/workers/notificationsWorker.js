@@ -6,10 +6,12 @@ const Twilio = require('twilio');
 /**
  * Send message to all users that need to take medicine shortly.
  */
+
+ /*
 function sendSms(schedules) {
-    const twilioAccountSid = "ACf07041d0f70d4d46fb6f95a3cdba1729";
-    const twilioAuthToken = "c8ab62319e1eeded7aaa6a2afb60e76d";
-    const twilioPhoneNumber = "+15105607596";
+    const twilioAccountSid = "AC385f2d91b2c6d5aeaa34013c8c9fd10f";
+    const twilioAuthToken = "adae2117340e4d84f89091d335bfe073";
+    const twilioPhoneNumber = "+14842407104";
     const client = new Twilio(twilioAccountSid, twilioAuthToken);
     schedules.forEach(function(event) {
         // Create options to send the message
@@ -26,14 +28,14 @@ function sendSms(schedules) {
         console.log(`Sending message to Phone = ${event.phonenumber} MSG = ${options.body}`);
 
         // // Send the message!
-        // client.messages.create(options, function(err, response) {
-        //     if (err) {
-        //         // Just log it for now
-        //         console.error(err);
-        //     } else {
-        //         console.log(`Message sent to ${event.phonenumber}`);
-        //     }
-        // });
+        client.messages.create(options, function(err, response) {
+            if (err) {
+            //Just log it for now
+                console.error(err);
+            } else {
+                 console.log(`Message sent to ${event.phonenumber}`);
+            }
+        });
     });
 }
 
@@ -71,3 +73,4 @@ const notificationWorkerFactory = function() {
 };
 
 module.exports = notificationWorkerFactory();
+*/

@@ -57,6 +57,15 @@ router.post('/login', (req, res) => {
                   } else {
                     var patientMedication = result;
 
+                    for (medication of patientMedication ) {
+                        var hours = Math.floor(medication.time / 60) % 12;
+                        var minutes = medication.time % 60;
+                        var amPm = (medication.time >= 720) ? "PM" : "AM";
+                        var time = hours.toString() + ":" + minutes.toString().padStart(2, '0') + " " + amPm;
+
+                        medication.time = time;
+                    }
+
                     var result = null;
                     var resultlist = [];
                     for (medication of patientMedication ) {
