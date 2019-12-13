@@ -7,11 +7,12 @@ const Twilio = require('twilio');
  * Send message to all users that need to take medicine shortly.
  */
 
- /*
+
+
 function sendSms(schedules) {
-    const twilioAccountSid = "AC385f2d91b2c6d5aeaa34013c8c9fd10f";
-    const twilioAuthToken = "adae2117340e4d84f89091d335bfe073";
-    const twilioPhoneNumber = "+14842407104";
+    const twilioAccountSid = ""; /*twilioAccountSid*/
+    const twilioAuthToken = ""; /*twilioAuthToken*/
+    const twilioPhoneNumber = ""; /*twilioPhoneNumber*/
     const client = new Twilio(twilioAccountSid, twilioAuthToken);
     schedules.forEach(function(event) {
         // Create options to send the message
@@ -73,4 +74,3 @@ const notificationWorkerFactory = function() {
 };
 
 module.exports = notificationWorkerFactory();
-*/
